@@ -65,4 +65,9 @@ public class ToDoListTest {
 		Collection<Task> tasks = todoList.getCompletedTasks();
 		assertEquals(2, tasks.size());
 	}
+	
+	@Test
+	public void testGetTasks() {
+		fail();
+	}
 }
