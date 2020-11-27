@@ -67,4 +67,21 @@ public class ToDoListTest {
 		Collection<Task> tasks = todoList.getCompletedTasks();
 		assertEquals(2, tasks.size());
 	}
+	@Test
+	public void testGetAllTasks() {
+		assertNotNull(todoList);
+		todoList.addTask(task1);
+		assertEquals(1, todoList.getAllTasks().size());
+	}
+	@Test
+	public void archiveTasks() {
+		task1.setComplete(true);
+		assertNotNull(todoList);
+		
+		todoList.addTask(task1);
+		todoList.addTask(task2);
+		todoList.addTask(task3);
+		todoList.archiveTasks();
+		assertEquals(2, todoList.getAllTasks().size());
+	}
 }
