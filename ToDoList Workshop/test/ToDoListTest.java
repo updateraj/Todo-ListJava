@@ -67,7 +67,9 @@ public class ToDoListTest {
 	}
 	
 	@Test
-	public void testGetTasks() {
-		fail();
+	public void testGetAllTasks() {
+		assertNotNull(todoList);
+		todoList.addTask(task1);
+		assertEquals(1, todoList.getAllTasks().size());
 	}
 }
