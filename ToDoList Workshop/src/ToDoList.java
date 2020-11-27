@@ -39,4 +39,13 @@ public class ToDoList {
 			if (task.isComplete() == true) completedTasks.add(task);
 		return completedTasks;
 	}
+	public void archiveTasks() {
+		Collection<Task> completedTasks = new ArrayList<Task> ();
+		Collection<Task> allTasks = getAllTasks();
+		for (Task task: allTasks) 
+			if (task.isComplete() == true) completedTasks.add(task);
+		for (Task completedTask: completedTasks)
+			tasks.remove(completedTask.getDescription());
+		
+	}
 }
