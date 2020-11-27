@@ -53,6 +53,8 @@ public class ToDoListTest {
 		
 		todoList.removeTask(task1.getDescription());
 		assertNull(todoList.getTask(task1.getDescription()));	
+		todoList.removeTask(task2.getDescription());
+		assertNull(todoList.getTask(task2.getDescription()));
 	}
 	@Test
 	public void testGetCompletedTasks() {
