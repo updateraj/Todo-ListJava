@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -46,6 +48,26 @@ public class ToDoList {
 			if (task.isComplete() == true) completedTasks.add(task);
 		for (Task completedTask: completedTasks)
 			tasks.remove(completedTask.getDescription());
+		
+	}
+	
+	public void ExportTask(String filename) {
+		FileWriter  fw = null;
+		try {
+			File file = new File(filename);
+			fw = new FileWriter(file);
+			Collection<Task> allTasks = new ArrayList<Task> ();
+			allTasks = getAllTasks();
+			for (Task task: allTasks) {
+				fw.append(task.getDescription()+","
+						+ (task.isComplete() ? "true":"false") +"\n");
+			}
+			fw.close();
+		}catch(Exception e) {
+			
+		}finally {
+			 try{ if(fw!=null)fw.close(); } catch(Exception e) {}
+		}
 		
 	}
 }

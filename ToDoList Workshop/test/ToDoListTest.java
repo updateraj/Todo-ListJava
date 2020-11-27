@@ -1,7 +1,7 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 
-
+import java.io.File;
 import java.util.Collection;
 
 public class ToDoListTest {
@@ -83,5 +83,20 @@ public class ToDoListTest {
 		todoList.addTask(task3);
 		todoList.archiveTasks();
 		assertEquals(2, todoList.getAllTasks().size());
+	}
+	
+	@Test
+	public void testExportTask() {
+		String filename = "ExportReport.csv";	
+		task1.setComplete(true);
+		task3.setComplete(true);
+		todoList.addTask(task1);
+		todoList.addTask(task2);
+		todoList.addTask(task3);
+		
+		todoList.ExportTask(filename);
+		File tempFile = new File(filename);
+		assertEquals(true,tempFile.exists());
+		
 	}
 }
